@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_portofilo/constants/color.dart';
-import 'package:my_portofilo/constants/nav_items.dart';
-import 'package:my_portofilo/styles/style.dart';
+import 'package:my_portofilo/constants/size.dart';
 import 'package:my_portofilo/widgets/drawer_mobile.dart';
 import 'package:my_portofilo/widgets/header_desktop.dart';
 import 'package:my_portofilo/widgets/header_mobile.dart';
-import 'package:my_portofilo/widgets/site_logo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,44 +16,50 @@ class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        key: scaffoldKey,
-        endDrawer: const DrawerMobile(),
-        backgroundColor: CustomColor.scaffoldBg,
-        body: (ListView(
-          children: [
-            //main
-            //const HeaderDesktop(),
-            HeaderMobile(
-              onMenuTap: () {
-                scaffoldKey.currentState?.openEndDrawer();
-              },
-              onLogoTap: () {},
-            ),
-            //skilss
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-            //projectsections
-            Container(
-              height: 500,
-              width: double.maxFinite,
-            ),
-            //conact
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-            //footer
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-          ],
-        )));
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+          key: scaffoldKey,
+          endDrawer: constraints.maxWidth >= kMinDesktopWidth
+              ? null
+              : const DrawerMobile(),
+          backgroundColor: CustomColor.scaffoldBg,
+          body: (ListView(
+            children: [
+              //main
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const HeaderDesktop()
+              else
+                HeaderMobile(
+                  onMenuTap: () {
+                    scaffoldKey.currentState?.openEndDrawer();
+                  },
+                  onLogoTap: () {},
+                ),
+              //skilss
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              ),
+              //projectsections
+              Container(
+                height: 500,
+                width: double.maxFinite,
+              ),
+              //conact
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              ),
+              //footer
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              ),
+            ],
+          )));
+    });
   }
 }
