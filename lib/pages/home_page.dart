@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portofilo/constants/color.dart';
 import 'package:my_portofilo/constants/nav_items.dart';
 import 'package:my_portofilo/styles/style.dart';
+import 'package:my_portofilo/widgets/drawer_mobile.dart';
 import 'package:my_portofilo/widgets/header_desktop.dart';
 import 'package:my_portofilo/widgets/header_mobile.dart';
 import 'package:my_portofilo/widgets/site_logo.dart';
@@ -14,16 +15,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: scaffoldKey,
+        endDrawer: const DrawerMobile(),
         backgroundColor: CustomColor.scaffoldBg,
         body: (ListView(
           children: [
             //main
             //const HeaderDesktop(),
             HeaderMobile(
-              onMenuTap: () {},
+              onMenuTap: () {
+                scaffoldKey.currentState?.openEndDrawer();
+              },
               onLogoTap: () {},
             ),
             //skilss
