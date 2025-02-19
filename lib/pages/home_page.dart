@@ -4,6 +4,7 @@ import 'package:my_portofilo/constants/size.dart';
 import 'package:my_portofilo/widgets/drawer_mobile.dart';
 import 'package:my_portofilo/widgets/header_desktop.dart';
 import 'package:my_portofilo/widgets/header_mobile.dart';
+import 'package:my_portofilo/widgets/main_desktop.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,8 +15,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late Size screenSize;
+  late double screenWidth;
+
+  @override
+  void initState() {
+    super.initState();
+    screenSize = Size.zero; // Initialize with a default value
+    screenWidth = 0.0; // Initialize with a default value
+  }
+
   @override
   Widget build(BuildContext context) {
+    screenSize = MediaQuery.of(context).size;
+    screenWidth = screenSize.width;
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
           key: scaffoldKey,
@@ -23,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               ? null
               : const DrawerMobile(),
           backgroundColor: CustomColor.scaffoldBg,
-          body: (ListView(
+          body: ListView(
             children: [
               //main
               if (constraints.maxWidth >= kMinDesktopWidth)
@@ -35,6 +48,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   onLogoTap: () {},
                 ),
+              const MainDesktop(),
               //skilss
               Container(
                 height: 500,
@@ -59,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.blueGrey,
               ),
             ],
-          )));
+          ));
     });
   }
 }
