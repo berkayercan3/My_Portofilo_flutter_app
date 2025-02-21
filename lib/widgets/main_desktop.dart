@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_portofilo/constants/color.dart';
-import 'package:my_portofilo/constants/size.dart';
 
 class MainDesktop extends StatelessWidget {
   const MainDesktop({super.key});
@@ -63,7 +62,7 @@ class MainDesktop extends StatelessWidget {
                           color: Colors.purple.withOpacity(0.1),
                           spreadRadius: 1,
                           blurRadius: 1,
-                          offset: Offset(0, 1), // Shadow effect
+                          offset: const Offset(0, 1), // Shadow effect
                         ),
                       ],
                     ),

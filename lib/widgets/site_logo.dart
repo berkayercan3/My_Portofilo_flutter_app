@@ -9,11 +9,11 @@ class SiteLogo extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: const Text(
-        "B.E",
+        "BE",
         style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            decoration: TextDecoration.underline,
+            //decoration: TextDecoration.underline,
             color: CustomColor.yellowSecondary),
       ),
     );
