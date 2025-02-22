@@ -47,6 +47,20 @@ class _HomePageState extends State<HomePage> {
                 height: 500,
                 width: double.maxFinite,
                 color: Colors.blueGrey,
+                child: const Column(
+                  //tittle
+                  children: [
+                    Text(
+                      'What I Can Do',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: CustomColor.whitePrimary),
+                    ),
+                  ],
+                ),
+
+                //platforms and skills
               ),
               //projectsections
               Container(
