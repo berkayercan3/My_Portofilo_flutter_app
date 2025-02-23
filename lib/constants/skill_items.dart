@@ -9,7 +9,11 @@ const List<Map> platformItems = [
   },
   {
     "img": "assets/loading.png",
-    "title": "loading",
+    "title": "New Skills",
+  },
+  {
+    "img": "assets/loading.png",
+    "title": "New Platforms",
   },
 ];
 
