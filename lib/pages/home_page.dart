@@ -8,6 +8,7 @@ import 'package:my_portofilo/widgets/header_mobile.dart';
 import 'package:my_portofilo/widgets/main_desktop.dart';
 import 'package:my_portofilo/widgets/main_mobile.dart';
 import 'package:my_portofilo/widgets/skills_desktop.dart';
+import 'package:my_portofilo/widgets/skills_mobile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -51,11 +52,11 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
                 width: screenWidth,
                 color: CustomColor.bglight1,
-                child: const Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // Title
-                    Text(
+                    const Text(
                       'What I Can Do',
                       style: TextStyle(
                         fontSize: 24,
@@ -63,9 +64,12 @@ class _HomePageState extends State<HomePage> {
                         color: CustomColor.whitePrimary,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    // Platforms and Skills
-                    SkillsDesktop(),
+                    const SizedBox(height: 20),
+                    // Platforms
+                    if (constraints.maxWidth >= kMedDesktopWidth)
+                      const SkillsDesktop()
+                    else
+                      const SkillsMobile(),
                   ],
                 ),
               ),
