@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:my_portofilo/constants/color.dart';
 import 'package:my_portofilo/constants/size.dart';
-import 'package:my_portofilo/constants/skill_items.dart';
 import 'package:my_portofilo/widgets/drawer_mobile.dart';
 import 'package:my_portofilo/widgets/header_desktop.dart';
 import 'package:my_portofilo/widgets/header_mobile.dart';
 import 'package:my_portofilo/widgets/main_desktop.dart';
 import 'package:my_portofilo/widgets/main_mobile.dart';
+import 'package:my_portofilo/widgets/project_card.dart';
 import 'package:my_portofilo/widgets/skills_desktop.dart';
 import 'package:my_portofilo/widgets/skills_mobile.dart';
+import 'package:my_portofilo/utils/project_utils.dart'; // Bu satırı ekleyin
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -74,10 +75,28 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              //projectsections
+              //projects
               Container(
-                height: 500,
-                width: double.maxFinite,
+                width: screenWidth,
+                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                child: Column(
+                  children: [
+                    //Work Projects Tittle
+                    const Text(
+                      'Work Projects',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: CustomColor.whitePrimary,
+                      ),
+                    ),
+
+                    //Work Projects Card
+                    ProjectCardWidget(
+                        project: workProjects
+                            .first), // workProjects'i doğru şekilde kullanın
+                  ],
+                ),
               ),
               //conact
               Container(
