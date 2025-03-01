@@ -3,6 +3,7 @@ class ProjectUtils {
   final String title;
   final String subtitle;
   final String? webLink;
+  final String? youtubeLink;
   final String? gitLink;
 
   ProjectUtils({
@@ -10,6 +11,7 @@ class ProjectUtils {
     required this.title,
     required this.subtitle,
     this.webLink,
+    this.youtubeLink,
     this.gitLink,
   });
 }
@@ -20,7 +22,7 @@ List<ProjectUtils> hobbyProjects = [
     image: 'assets/projects/youtube.png',
     title: 'My YouTube Channel',
     subtitle: 'An informative channel with software and coding content',
-    webLink: 'https://www.youtube.com/@ercanberkay',
+    youtubeLink: 'https://www.youtube.com/@ercanberkay',
   ),
   ProjectUtils(
     image: 'assets/projects/Book.png',

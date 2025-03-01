@@ -14,8 +14,8 @@ class ProjectCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.antiAlias,
-      height: 280,
-      width: 250,
+      height: 260,
+      width: 240,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: CustomColor.bglight2,
@@ -27,13 +27,13 @@ class ProjectCardWidget extends StatelessWidget {
           //projects image
           Image.asset(
             project.image,
-            height: 160,
+            height: 140,
             width: 250,
             fit: BoxFit.cover,
           ),
           //title
           Padding(
-            padding: EdgeInsets.fromLTRB(12, 15, 12, 12),
+            padding: const EdgeInsets.fromLTRB(12, 11, 12, 10),
             child: Text(
               project.title,
               style: const TextStyle(
@@ -42,24 +42,24 @@ class ProjectCardWidget extends StatelessWidget {
           ),
           //subtitle
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
             child: Text(
               project.subtitle,
               style: const TextStyle(
-                  fontSize: 10, color: CustomColor.whiteSecondary),
+                  fontSize: 11, color: CustomColor.whiteSecondary),
             ),
           ),
           const Spacer(),
           //footer
           Container(
             color: CustomColor.bglight1,
-            padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
             child: Row(
               children: [
                 const Text(
                   "Avaliable on:",
                   style: TextStyle(
-                      color: CustomColor.yellowSecondary, fontSize: 15),
+                      color: CustomColor.yellowSecondary, fontSize: 14),
                 ),
                 const Spacer(),
                 if (project.webLink != null)
@@ -92,13 +92,13 @@ class ProjectCardWidget extends StatelessWidget {
                     ),
                   ),
                 const SizedBox(width: 5),
-                if (project.webLink != null)
+                if (project.youtubeLink != null)
                   ColorFiltered(
                     colorFilter:
                         const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                     child: InkWell(
                       onTap: () {
-                        js.context.callMethod('open', [project.webLink]);
+                        js.context.callMethod('open', [project.youtubeLink]);
                       },
                       child: Image.asset(
                         'assets/youtube_button_icon.png',
