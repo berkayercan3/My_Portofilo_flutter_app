@@ -4,6 +4,7 @@ import 'package:my_portofilo/constants/size.dart';
 import 'package:my_portofilo/widgets/contact_section.dart';
 import 'package:my_portofilo/widgets/custom_text_field.dart';
 import 'package:my_portofilo/widgets/drawer_mobile.dart';
+import 'package:my_portofilo/widgets/footer.dart';
 import 'package:my_portofilo/widgets/header_desktop.dart';
 import 'package:my_portofilo/widgets/header_mobile.dart';
 import 'package:my_portofilo/widgets/main_desktop.dart';
@@ -77,17 +78,19 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+
               const SizedBox(height: 30),
+
               //projects
               const ProjectsSection(),
-
               const SizedBox(height: 30),
 
               //contact
               const ContactSection(),
+              const SizedBox(height: 30),
 
               //footer
-              Container(),
+              const Footer(),
             ],
           ),
         );
