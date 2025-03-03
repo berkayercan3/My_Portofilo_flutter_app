@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portofilo/constants/color.dart';
 import 'package:my_portofilo/constants/size.dart';
+import 'package:my_portofilo/widgets/contact_section.dart';
+import 'package:my_portofilo/widgets/custom_text_field.dart';
 import 'package:my_portofilo/widgets/drawer_mobile.dart';
 import 'package:my_portofilo/widgets/header_desktop.dart';
 import 'package:my_portofilo/widgets/header_mobile.dart';
@@ -78,18 +80,14 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 30),
               //projects
               const ProjectsSection(),
+
+              const SizedBox(height: 30),
+
               //contact
-              Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.blueGrey,
-              ),
+              const ContactSection(),
+
               //footer
-              Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.blueGrey,
-              ),
+              Container(),
             ],
           ),
         );
