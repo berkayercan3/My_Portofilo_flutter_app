@@ -3,7 +3,8 @@ import 'package:my_portofilo/constants/color.dart';
 import 'package:my_portofilo/constants/nav_items.dart';
 
 class DrawerMobile extends StatelessWidget {
-  const DrawerMobile({super.key});
+  const DrawerMobile({super.key, required this.onNavItemTap});
+  final Function(int) onNavItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +32,10 @@ class DrawerMobile extends StatelessWidget {
                   fontWeight: FontWeight.w600),
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               leading: Icon(navIcons[i]),
-              title: Text(
-                navTitles[i],
-              ),
-              onTap: () {},
+              title: Text(navTitles[i]),
+              onTap: () {
+                onNavItemTap(i);
+              },
             )
         ],
       ),
