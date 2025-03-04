@@ -1,1 +1,3 @@
-command = "curl -sL https://sdk.flutter.dev/install.sh | bash && export PATH=\"$PATH:$HOME/flutter/bin\" && flutter build web --release --base-href /"
+[build]
+command = "curl -fsSL https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.0-stable.tar.xz | tar xJ && export PATH=$PATH:`pwd`/flutter/bin && flutter build web --release --base-href /"
+publish = "build/web"
