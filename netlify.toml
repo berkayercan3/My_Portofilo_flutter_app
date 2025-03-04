@@ -1,3 +1,1 @@
-[build]
-  command = "curl -sL https://sdk.flutter.dev/install.sh | bash && export PATH=\"\$PATH:\$HOME/flutter/bin\" && flutter build web --release --base-href /"
-  publish = "build/web"
+command = "curl -sL https://sdk.flutter.dev/install.sh | bash && export PATH=\"$PATH:$HOME/flutter/bin\" && flutter build web --release --base-href /"
